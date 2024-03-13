@@ -2,6 +2,7 @@ package com.peerlendr.service.implementation;
 
 import com.peerlendr.entity.Borrower;
 import com.peerlendr.enums.UserType;
+import com.peerlendr.exceptions.DuplicateEmailException;
 import com.peerlendr.payload.request.BorrowerRequest;
 import com.peerlendr.payload.response.UserResponse;
 import com.peerlendr.repository.BorrowerRepository;
@@ -27,7 +28,7 @@ public class BorrowerServiceImpl implements BorrowerService {
         logger.info("Creating new user with email {}:", borrowerRequest.getEmail());
 
         if (isUserCreated(borrowerRequest.getEmail())){
-            throw new RuntimeException("User already exists in the data source");
+            throw new DuplicateEmailException("User with email" + " " + borrowerRequest.getEmail() + " " + "already exists in the data source");
         }
 
         // validate user type
