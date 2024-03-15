@@ -24,6 +24,7 @@ public class Admin {
 
     @Column(unique = true)
     private String email;
+    private String uniqueId;
 
 
     private String password;

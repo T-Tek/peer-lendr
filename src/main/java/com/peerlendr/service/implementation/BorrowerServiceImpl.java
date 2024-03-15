@@ -7,6 +7,7 @@ import com.peerlendr.payload.request.BorrowerRequest;
 import com.peerlendr.payload.response.UserResponse;
 import com.peerlendr.repository.BorrowerRepository;
 import com.peerlendr.service.BorrowerService;
+import com.peerlendr.utils.UserUtils;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,6 +39,7 @@ public class BorrowerServiceImpl implements BorrowerService {
                 .firstName(borrowerRequest.getFirstName())
                 .lastName(borrowerRequest.getLastName())
                 .email(borrowerRequest.getEmail())
+                .uniqueId(UserUtils.generateUniqueId())
                 .userType(borrowerRequest.getUserType())
                 .password(borrowerRequest.getPassword())
                 .dateOfBirth(borrowerRequest.getDateOfBirth())

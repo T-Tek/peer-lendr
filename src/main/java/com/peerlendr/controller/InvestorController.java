@@ -3,9 +3,8 @@ package com.peerlendr.controller;
 import com.peerlendr.enums.ResponseCodeAndMessage;
 import com.peerlendr.payload.request.InvestorRequest;
 import com.peerlendr.payload.response.Response;
-import com.peerlendr.payload.response.UserResponse;
 import com.peerlendr.service.InvestorService;
-import com.peerlendr.utils.UserResponseCodeAndMessage;
+import com.peerlendr.utils.UserUtils;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,7 +20,7 @@ public class InvestorController {
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public Response createInvestor(@Valid @RequestBody InvestorRequest investorRequest){
-        UserResponse data = investorService.createInvestor(investorRequest);
-        return UserResponseCodeAndMessage.getUserResponseCodeAndMessage(ResponseCodeAndMessage.SUCCESS, data);
+        var data = investorService.createInvestor(investorRequest);
+        return UserUtils.getUserResponseCodeAndMessage(ResponseCodeAndMessage.SUCCESS, data);
     }
 }

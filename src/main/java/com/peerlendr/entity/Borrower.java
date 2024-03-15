@@ -26,6 +26,7 @@ public class Borrower {
 
     @Column(unique = true)
     private String email;
+    private String uniqueId;
 
     @Enumerated(EnumType.STRING)
     private UserType userType;

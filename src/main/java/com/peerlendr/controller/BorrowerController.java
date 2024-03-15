@@ -3,9 +3,8 @@ package com.peerlendr.controller;
 import com.peerlendr.enums.ResponseCodeAndMessage;
 import com.peerlendr.payload.request.BorrowerRequest;
 import com.peerlendr.payload.response.Response;
-import com.peerlendr.payload.response.UserResponse;
 import com.peerlendr.service.BorrowerService;
-import com.peerlendr.utils.UserResponseCodeAndMessage;
+import com.peerlendr.utils.UserUtils;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,7 +20,7 @@ public class BorrowerController {
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public Response createBorrower(@Valid @RequestBody BorrowerRequest userRequest){
-        UserResponse data = borrowerService.createBorrower(userRequest);
-        return UserResponseCodeAndMessage.getUserResponseCodeAndMessage(ResponseCodeAndMessage.SUCCESS, data);
+        var data = borrowerService.createBorrower(userRequest);
+        return UserUtils.getUserResponseCodeAndMessage(ResponseCodeAndMessage.SUCCESS, data);
     }
 }

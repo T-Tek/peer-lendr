@@ -9,6 +9,7 @@ import com.peerlendr.payload.response.UserResponse;
 import com.peerlendr.repository.BorrowerRepository;
 import com.peerlendr.repository.InvestorRepository;
 import com.peerlendr.service.InvestorService;
+import com.peerlendr.utils.UserUtils;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,6 +41,7 @@ public class InvestorServiceImpl implements InvestorService {
                 .firstName(investorRequest.getFirstName())
                 .lastName(investorRequest.getLastName())
                 .email(investorRequest.getEmail())
+                .uniqueId(UserUtils.generateUniqueId())
                 .userType(investorRequest.getUserType())
                 .password(investorRequest.getPassword())
                 .dateOfBirth(investorRequest.getDateOfBirth())

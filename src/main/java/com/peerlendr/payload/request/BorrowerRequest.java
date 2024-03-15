@@ -21,6 +21,7 @@ public class BorrowerRequest {
     @NotBlank(message = "Email is required")
     @Email(message = "Invalid email format")
     private String email;
+    private String uniqueId;
 
     //@NotBlank(message = "User type is required")
     private UserType userType;

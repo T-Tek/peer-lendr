@@ -1,6 +1,7 @@
 package com.peerlendr.payload.request;
 
 import com.peerlendr.enums.UserType;
+import com.peerlendr.utils.UserUtils;
 import jakarta.validation.constraints.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,7 +23,7 @@ public class InvestorRequest {
     @NotBlank(message = "Email is required")
     @Email(message = "Invalid email format")
     private String email;
-
+    private String uniqueId;
     //@NotBlank(message = "User type is required")
     private UserType userType;
 

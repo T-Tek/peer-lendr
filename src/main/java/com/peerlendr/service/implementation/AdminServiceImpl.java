@@ -7,6 +7,7 @@ import com.peerlendr.payload.request.AdminRequest;
 import com.peerlendr.payload.response.UserResponse;
 import com.peerlendr.repository.AdminRepository;
 import com.peerlendr.service.AdminService;
+import com.peerlendr.utils.UserUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -34,6 +35,7 @@ public class AdminServiceImpl implements AdminService {
                 .firstName(adminRequest.getFirstName())
                 .lastName(adminRequest.getLastName())
                 .email(adminRequest.getEmail())
+                .uniqueId(UserUtils.generateUniqueId())
                 //.userType(adminRequest.getUserType())
                 .password(adminRequest.getPassword())
                 .dateOfBirth(adminRequest.getDateOfBirth())
