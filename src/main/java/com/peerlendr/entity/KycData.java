@@ -19,7 +19,7 @@ public class KycData {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String idNumber;
+    private String uniqueId;
     private String documentType;
     private String documentNumber;
     private String bvn;

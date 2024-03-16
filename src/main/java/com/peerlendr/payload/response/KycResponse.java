@@ -12,7 +12,6 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class KycResponse {
-    private String idNumber;
     private String documentType;
     private String documentNumber;
     private String bvn;

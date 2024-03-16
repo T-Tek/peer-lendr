@@ -15,8 +15,9 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 public class KycRequest {
-    @NotBlank(message = "ID number is required")
-    private String idNumber;
+
+    @NotBlank(message = "User uniqueId is required")
+    private String uniqueId;
 
     @NotBlank(message = "Document type is required")
     private String documentType;
@@ -27,7 +28,6 @@ public class KycRequest {
     @Pattern(regexp = "\\d{10}", message = "BVN must be a 10-digit number")
     private String bvn;
 
-    //@NotBlank(message = "Date is required")
     @Future(message = "Expiry date must be in the future")
     private Date expiryDate;
 
